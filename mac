@@ -13,15 +13,17 @@ echo "Installing Homebrew, a good OS X package manager ..."
 
 echo "Put Homebrew location earlier in PATH ..."
   echo "
-# recommended by brew doctor
-export PATH='/usr/local/bin:$PATH'" >> ~/.zshrc
+# Homebrew config
+export PATH='/usr/local/bin:$PATH'
+export MANPATH='/usr/local/share/man:$MANPATH'
+" >> ~/.zshrc
   source ~/.zshrc
 
 echo "Installing Postgres, a good open source relational database ..."
-  brew install postgres --no-python
+  brew install postgres
 
-echo "Installing Redis, a good key-value database ..."
-  brew install redis
+echo "Installing MySQL, another goof open source relational database ..."
+  brew install mysql
 
 echo "Installing ack, a good way to search through files ..."
   brew install ack
@@ -32,15 +34,16 @@ echo "Installing tmux, a good way to save project state and switch between proje
 echo "Installing ImageMagick, good for cropping and re-sizing images ..."
   brew install imagemagick
 
-echo "Installing QT, used by Capybara Webkit for headless Javascript integration testing ..."
-  brew install qt
-
-echo "Installing RVM (Ruby Version Manager) ..."
-  bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+echo "Installing rbenv, for managing rubies"
+  brew install rbenv
   echo "
-# RVM
-[[ -s '/Users/`whoami`/.rvm/scripts/rvm' ]] && source '/Users/`whoami`/.rvm/scripts/rvm'" >> ~/.zshrc
+# rvenv config
+export PATH='$HOME/.rbenv/bin:$PATH'
+eval '$(rbenv init -)'
+" >> ~/.zshrc
   source ~/.zshrc
 
-bash < <(curl -s https://raw.github.com/thoughtbot/laptop/master/ruby)
-bash < <(curl -s https://raw.github.com/thoughtbot/laptop/master/heroku)
+echo "Installing ruby-build, for building rubies"
+  brew install ruby-build
+
+bash < <(curl -s https://raw.github.com/janogonzalez/laptop/master/ruby)
