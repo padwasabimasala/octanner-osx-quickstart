@@ -14,8 +14,8 @@ echo "Installing Homebrew, a good OS X package manager ..."
 echo "Put Homebrew location earlier in PATH ..."
   echo "
 # Homebrew config
-export PATH='/usr/local/bin:$PATH'
-export MANPATH='/usr/local/share/man:$MANPATH'
+export PATH=\"/usr/local/bin:\$PATH\"
+export MANPATH=\"/usr/local/share/man:\$MANPATH\"
 " >> ~/.zshrc
   source ~/.zshrc
 
@@ -38,8 +38,8 @@ echo "Installing rbenv, for managing rubies"
   brew install rbenv
   echo "
 # rvenv config
-export PATH='$HOME/.rbenv/bin:$PATH'
-eval '$(rbenv init -)'
+export PATH=\"\$HOME/.rbenv/bin:\$PATH\"
+eval \"\$(rbenv init -)\"
 " >> ~/.zshrc
   source ~/.zshrc
 
