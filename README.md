@@ -6,11 +6,11 @@ Tested on Mountain Lion.
 * Install the [Command Line Tools for Xcode](Command Line Tools for Xcode).
 * Change your default shell to zsh:
 
-    chsh -s /bin/zsh
+       chsh -s /bin/zsh
 
 * Open a new terminal session and run this one-liner:
 
-    zsh < <(curl -s https://raw.github.com/janogonzalez/osx-developer-setup/master/install)
+       zsh < <(curl -s https://raw.github.com/janogonzalez/osx-developer-setup/master/install)
 
 The script will add a few lines to your `.zshrc`.
 
