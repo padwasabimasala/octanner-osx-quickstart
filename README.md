@@ -7,7 +7,7 @@ First, install the [Command Line Tools for Xcode](Command Line Tools for Xcode).
 
 Then, run this one-liner:
 
-    bash < <(curl -s https://raw.github.com/janogonzalez/osx-developer-setup/master/mac)
+    bash < <(curl -s https://raw.github.com/janogonzalez/osx-developer-setup/master/install)
 
 ## What it sets up
 
