@@ -85,3 +85,5 @@ eval \"\$(rbenv init -)\"
 echo "Installing the bundler gem for managing the gems of your projects ..."
   gem install bundler --no-rdoc --no-ri
   rbenv rehash
+
+echo "WARNING: Remember to setup postgres, mysql and redis!"
