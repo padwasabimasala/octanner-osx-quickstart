@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 
+#
+# SSH keys configuration
+#
+
 echo "Checking for SSH key, generating one if it doesn't exist ..."
   [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa
 
 echo "Copying public key to clipboard. Paste it into your Github account ..."
   [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
   open https://github.com/account/ssh
+
+#
+# Homebrew
+#
 
 echo "Installing Homebrew, a good OS X package manager ..."
   /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
@@ -19,8 +27,29 @@ export MANPATH=\"/usr/local/share/man:\$MANPATH\"
 " >> ~/.zshrc
   source ~/.zshrc
 
+#
+# Utilities
+#
+
+echo "Installing ack, a good way to search through files ..."
+  brew install ack
+
 echo "Installing Macvim, the best text editor ..."
   brew install macvim --override-system-vim
+
+echo "Installing tmux, a good way to save project state and switch between projects ..."
+  brew install tmux
+  brew install reattach-to-user-namespace
+
+echo "Installing ctags, useful for vim ..."
+  brew install ctags
+
+echo "Installing GraphicsMagick, good for cropping and re-sizing images ..."
+  brew install graphicsmagick
+
+#
+# Databases
+#
 
 echo "Installing Postgres, a good open source relational database ..."
   brew install postgres
@@ -28,26 +57,29 @@ echo "Installing Postgres, a good open source relational database ..."
 echo "Installing MySQL, another goof open source relational database ..."
   brew install mysql
 
-echo "Installing ack, a good way to search through files ..."
-  brew install ack
+echo "Installing Redis, a key/value database ..."
+  brew install redis
 
-echo "Installing tmux, a good way to save project state and switch between projects ..."
-  brew install tmux
-  brew install reattach-to-user-namespace
-
-echo "Installing ImageMagick, good for cropping and re-sizing images ..."
-  brew install imagemagick
+#
+# Ruby
+#
 
 echo "Installing rbenv, for managing rubies"
   brew install rbenv
-  echo "
+#  echo "
 # rvenv config
-export PATH=\"\$HOME/.rbenv/bin:\$PATH\"
-eval \"\$(rbenv init -)\"
-" >> ~/.zshrc
+#export PATH=\"\$HOME/.rbenv/bin:\$PATH\"
+#eval \"\$(rbenv init -)\"
+#" >> ~/.zshrc
   source ~/.zshrc
-
+  
 echo "Installing ruby-build, for building rubies"
-  brew install ruby-build
+  brew install --HEAD ruby-build
+echo "Installing Ruby 1.9.3 stable and making it the default Ruby ..."
+  rbenv install 1.9.3-p194
+  rbenv rehash
+  rbenv global 1.9.3-p194
 
-bash < <(curl -s https://raw.github.com/janogonzalez/laptop/master/ruby)
+echo "Installing the bundler gem for managing the gems of your projects ..."
+  gem install bundler
+  rbenv rehash
