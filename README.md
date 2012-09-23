@@ -3,14 +3,16 @@ Script to setup a Ruby development environment for your OS X machine.
 Tested on Mountain Lion. 
 
 ## Install
-First, install the [Command Line Tools for Xcode](Command Line Tools for Xcode).
+1. Install the [Command Line Tools for Xcode](Command Line Tools for Xcode).
+2. Change your default shell to zsh:
 
-Then, run this one-liner:
+    chsh -s /bin/zsh
 
-    bash < <(curl -s https://raw.github.com/janogonzalez/osx-developer-setup/master/install)
+3. Open a new terminal session and run this one-liner:
 
-The script will add a few lines to your `.zshrc`, if you don't use zsh update 
-the appropiate files.
+    zsh < <(curl -s https://raw.github.com/janogonzalez/osx-developer-setup/master/install)
+
+The script will add a few lines to your `.zshrc`.
 
 ## What it sets up
 ### SSH keys
@@ -62,11 +64,6 @@ machine.
 
 ## Recommended
 This stuff doesn't come in the script.
-
-### [zsh](http://www.zsh.org/)
-Change your default shell to zsh:
-
-     chsh -s /bin/zsh
 
 ### [Prezto](https://github.com/sorin-ionescu/prezto)
 A great configuration framework for zsh.
