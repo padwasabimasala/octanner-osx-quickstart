@@ -9,10 +9,13 @@ Then, run this one-liner:
 
     bash < <(curl -s https://raw.github.com/janogonzalez/osx-developer-setup/master/install)
 
+The script will add a few lines to your `.zshrc`, if you don't use zsh update 
+the appropiate files.
+
 ## What it sets up
 ### SSH keys
-Copies your public SSH key to the clipboard so you can paste it on your GitHub account configuration.
-If you don't have a SSH Key it will create one for you.
+Copies your public SSH key to the clipboard so you can paste it on your GitHub
+account configuration. If you don't have a SSH Key it will create one for you.
 
 ### [Homebrew](http://mxcl.github.com/homebrew/)
 A great package manager, it's used to install the rest of the software.
@@ -27,8 +30,8 @@ The best text editor ;).
 A terminal multiplexer, allows to run multiple terminals from a single screen.
 
 ### [Ctags](http://ctags.sourceforge.net/)
-A tool to index language objects like classes, functions, etc. to easily locate them by
-text editors and other tools.
+A tool to index language objects like classes, functions, etc. to easily
+locate them by text editors and other tools.
 
 ### [GraphicsMagick](http://www.graphicsmagick.org/)
 A tool to process images.
@@ -54,10 +57,19 @@ The latest stable Ruby version.
 ### [Bundler](http://gembundler.com/)
 A gem to manage Ruby application dependencies.
 
-It should take about 30 minutes for everything to install, depending on your machine.
+It should take about 30 minutes for everything to install, depending on your
+machine.
 
 ## Recommended
 This stuff doesn't come in the script.
+
+### [zsh](http://www.zsh.org/)
+Change your default shell to zsh:
+
+     chsh -s /bin/zsh
+
+### [Prezto](https://github.com/sorin-ionescu/prezto)
+A great configuration framework for zsh.
 
 ### [iTerm2](http://www.iterm2.com/)
 A terminal emulator for OS X.
