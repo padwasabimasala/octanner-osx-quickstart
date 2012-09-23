@@ -16,7 +16,7 @@ echo "Copying public key to clipboard. Paste it into your Github account ..."
 #
 
 echo "Installing Homebrew, a good OS X package manager ..."
-  /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+  ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
   brew update
 
 echo "Put Homebrew location earlier in PATH ..."
