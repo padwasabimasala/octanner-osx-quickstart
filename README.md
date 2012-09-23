@@ -10,17 +10,72 @@ Then, run this one-liner:
     bash < <(curl -s https://raw.github.com/janogonzalez/osx-developer-setup/master/install)
 
 ## What it sets up
+### SSH keys
+Copies your public SSH key to the clipboard so you can paste it on your GitHub account configuration.
+If you don't have a SSH Key it will create one for you.
 
-* SSH public key (for authenticating with services like Github and Heroku)
-* [Homebrew](http://mxcl.github.com/homebrew/) (A package manager used to install the rest of the software)
-* Ack (for finding things in files)
-* Tmux (for saving project state and switching between projects)
-* MySQL (for storing relational data)
-* Postgres (for storing relational data)
-* ImageMagick (for cropping and resizing images)
-* rbenv (for managing versions of the Ruby programming language)
-* ruby-build (for building versions of the Ruby programming language)
-* Ruby 1.9.3 stable (for writing general-purpose code)
-* Bundler gem (for managing Ruby libraries)
+### [Homebrew](http://mxcl.github.com/homebrew/)
+A great package manager, it's used to install the rest of the software.
+
+### [Ack](http://betterthangrep.com/)
+A tool like grep, optimized for searching in source code files.
+
+### [MacVim](http://code.google.com/p/macvim/)
+The best text editor ;).
+
+### [Tmux](http://tmux.sourceforge.net/)
+A terminal multiplexer, allows to run multiple terminals from a single screen.
+
+### [Ctags](http://ctags.sourceforge.net/)
+A tool to index language objects like classes, functions, etc. to easily locate them by
+text editors and other tools.
+
+### [GraphicsMagick](http://www.graphicsmagick.org/)
+A tool to process images.
+
+### [MySQL](http://www.mysql.com/)
+An open source relational database.
+
+### [PostgreSQL](http://www.postgresql.org/)
+Another open source relational database.
+
+### [Redis](http://redis.io/)
+An open source key-value store.
+
+### [rbenv](https://github.com/sstephenson/rbenv)
+A tool for managing different Ruby versions.
+
+### [ruby-build](https://github.com/sstephenson/ruby-build)
+A tool to compile different Ruby versions.
+
+### [Ruby 1.9.3](http://www.ruby-lang.org/)
+The latest stable Ruby version. 
+
+### [Bundler](http://gembundler.com/)
+A gem to manage Ruby application dependencies.
 
 It should take about 30 minutes for everything to install, depending on your machine.
+
+## Recommended
+This stuff doesn't come in the script.
+
+### [iTerm2](http://www.iterm2.com/)
+A terminal emulator for OS X.
+
+### [Solarized](http://ethanschoonover.com/solarized)
+A color theme for your terminal, editors and IDEs.
+
+### [Alfred](http://www.alfredapp.com/)
+A great application launcher (and so much more).
+
+### [AppCleaner](http://www.freemacsoft.net/appcleaner/)
+A utility to uninstall software.
+
+### [The Unarchiver](http://wakaba.c3.cx/s/apps/unarchiver.html)
+A tool to unpack archives.
+
+### [Onyx](http://www.titanium.free.fr/download.php)
+A great tool for system maintenance and personalization.
+
+### [Gitx](http://gitx.frim.nl/)
+Sometimes you want a graphical history viewer...
