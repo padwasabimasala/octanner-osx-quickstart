@@ -66,19 +66,21 @@ echo "Installing Redis, a key/value database ..."
 
 echo "Installing rbenv, for managing rubies"
   brew install rbenv
+  
+echo "Installing ruby-build, for building rubies"
+  brew install --HEAD ruby-build
+
+echo "Installing Ruby 1.9.3 stable and making it the default Ruby ..."
+  rbenv install 1.9.3-p194
+  rbenv rehash
+  rbenv global 1.9.3-p194
+
   echo "
 # rvenv config
 export PATH=\"\$HOME/.rbenv/bin:\$PATH\"
 eval \"\$(rbenv init -)\"
 " >> ~/.zshrc
   source ~/.zshrc
-  
-echo "Installing ruby-build, for building rubies"
-  brew install --HEAD ruby-build
-echo "Installing Ruby 1.9.3 stable and making it the default Ruby ..."
-  rbenv install 1.9.3-p194
-  rbenv rehash
-  rbenv global 1.9.3-p194
 
 echo "Installing the bundler gem for managing the gems of your projects ..."
   gem install bundler --no-rdoc --no-ri
