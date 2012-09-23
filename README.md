@@ -1,22 +1,18 @@
-Laptop
-======
+# OS X Developer Setup
+Script to setup a Ruby development environment for your OS X machine.
+Tested on Mountain Lion. 
 
-Laptop is a set of scripts to get your Max OS X laptop set up as a Rails development machine.
-
-Install
--------
-
-First, install [GCC for OS X](https://github.com/kennethreitz/osx-gcc-installer). (requires OS X 10.6 or higher)
+## Install
+First, install the [Command Line Tools for Xcode](Command Line Tools for Xcode).
 
 Then, run this one-liner:
 
-    bash < <(curl -s https://raw.github.com/janogonzalez/laptop/master/mac)
+    bash < <(curl -s https://raw.github.com/janogonzalez/osx-developer-setup/master/mac)
 
-What it sets up
----------------
+## What it sets up
 
 * SSH public key (for authenticating with services like Github and Heroku)
-* Homebrew (for managing operating system libraries)
+* [Homebrew](http://mxcl.github.com/homebrew/) (A package manager used to install the rest of the software)
 * Ack (for finding things in files)
 * Tmux (for saving project state and switching between projects)
 * MySQL (for storing relational data)
