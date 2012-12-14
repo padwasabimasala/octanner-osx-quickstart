@@ -4,7 +4,6 @@ Tested on Mountain Lion.
 
 ## Install
 * Install Xcode or Command Line Tools for Xcode
-
 If you install Command Line Tools for Xcode besure to run the following command. For more information see https://github.com/mxcl/homebrew/issues/10245
 
   ```
