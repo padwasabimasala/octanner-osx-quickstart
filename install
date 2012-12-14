@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 
+# 
+# Banner
+#
+
+echo "
+Welcome to the O.C. Tanner OSX quick start
+
+Be sure to install either Xcode or Xcode Commandline Tools before running this script.
+
+https://itunes.apple.com/us/app/xcode/id497799835?mt=12
+https://developer.apple.com/downloads/index.action
+
+See Matthew if you have problems or questions.
+"
+read -p "Press any key to continue, Cntl-C to quit."
+
 #
 # SSH keys configuration
 #
@@ -18,72 +34,78 @@ echo "Copying public key to clipboard. Paste it into your Github account ..."
 echo "Installing Homebrew, a good OS X package manager ..."
   ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
   brew update
+  brew doctor
+  brew tap homebrew/dupes
 
-echo "Put Homebrew location earlier in PATH ..."
+#
+# Bash Completion
+#
+
+echo "Installing and configuring bash completion"
+  brew install bash-completion
   echo "
-# Homebrew config
-export PATH=\"/usr/local/bin:\$PATH\"
-export MANPATH=\"/usr/local/share/man:\$MANPATH\"
-" >> ~/.zshrc
-  source ~/.zshrc
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+" >> ~/.bashrc
+  source ~/.bashrc
+  ln -s "/usr/local/Library/Contributions/brew_bash_completion.sh" "/usr/local/etc/bash_completion.d"
 
 #
-# Utilities
+# Git and Build Tools
 #
 
-echo "Installing ack, a good way to search through files ..."
-  brew install ack
+echo "Installing git"
+  brew install git
 
-echo "Installing Macvim, the best text editor ..."
-  brew install macvim --override-system-vim
-
-echo "Installing tmux, a good way to save project state and switch between projects ..."
-  brew install tmux
-  brew install reattach-to-user-namespace
-
-echo "Installing ctags, useful for vim ..."
-  brew install ctags
-
-echo "Installing GraphicsMagick, good for cropping and re-sizing images ..."
-  brew install graphicsmagick
+echo "Installing autoconf, automake and apple-gcc42"
+  brew install autoconf 
+  brew install automake 
+  brew install apple-gcc42
 
 #
-# Databases
+# RVM, Ruby and Rails
 #
 
-echo "Installing Postgres, a good open source relational database ..."
+echo "Installing RVM and Ruby"
+  curl -L https://get.rvm.io | bash -s stable
+  source ~/.rvm/scripts/rvm
+  rvm pkg install openssl
+  rvm install 1.9.2
+  rvm use 1.9.2 --default
+  gem install rails
+
+#
+# Postgres
+#
+
+echo "Installing and setting up Postgres"
   brew install postgres
-
-echo "Installing MySQL, another goof open source relational database ..."
-  brew install mysql
-
-echo "Installing Redis, a key/value database ..."
-  brew install redis
+  if [ ! -d "/usr/local/var/postgres" ]; then
+    initdb /usr/local/var/postgres -E utf8
+  fi
+  pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 
 #
-# Ruby
+# NVM, NodeJS and libs
 #
 
-echo "Installing rbenv, for managing rubies"
-  brew install rbenv
-  
-echo "Installing ruby-build, for building rubies"
-  brew install --HEAD ruby-build
-
-echo "Installing Ruby 1.9.3 stable and making it the default Ruby ..."
-  rbenv install 1.9.3-p194
-  rbenv rehash
-  rbenv global 1.9.3-p194
-
+echo "Installing NVM"
+  git clone https://github.com/creationix/nvm.git ~/.nvm
   echo "
-# rvenv config
-export PATH=\"\$HOME/.rbenv/bin:\$PATH\"
-eval \"\$(rbenv init -)\"
-" >> ~/.zshrc
-  source ~/.zshrc
+# NVM setup 
+source ~/.nvm/nvm.sh
+" >> ~/.bashrc
+  source ~/.bashrc
 
-echo "Installing the bundler gem for managing the gems of your projects ..."
-  gem install bundler --no-rdoc --no-ri
-  rbenv rehash
+echo "Installing NodeJS"
+  nvm install v0.8.2
+  nvm alias default v0.8.2
+  nvm use v0.8.2
 
-echo "WARNING: Remember to setup postgres, mysql and redis!"
+echo "Installing Foreman, CoffeeScript, Buster, i18next and Nodemon"
+  npm install foreman -g
+  npm install coffee-script -g
+  npm install mocha -g
+  npm install i18next
+  npm install nodemon -g
