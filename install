@@ -14,7 +14,6 @@ https://developer.apple.com/downloads/index.action
 
 See Matthew if you have problems or questions.
 "
-read -p "Press any key to continue, Cntl-C to quit."
 
 #
 # SSH keys configuration
