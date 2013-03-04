@@ -7,6 +7,8 @@
 echo "
 Welcome to the O.C. Tanner OSX quick start
 
+Last tested 2013-03-04 on OSX Snow Leopard
+
 Be sure to install either Xcode or Xcode Commandline Tools before running this script.
 
 https://itunes.apple.com/us/app/xcode/id497799835?mt=12
@@ -62,6 +64,10 @@ echo "Installing autoconf, automake and apple-gcc42"
   brew install automake 
   brew install apple-gcc42
 
+echo "Installing qt to support capybara"
+echo "  See https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit for more info"
+  brew install qt
+
 #
 # RVM, Ruby and Rails
 #
@@ -70,8 +76,8 @@ echo "Installing RVM and Ruby"
   curl -L https://get.rvm.io | bash -s stable
   source ~/.rvm/scripts/rvm
   rvm pkg install openssl
-  rvm install 1.9.2
-  rvm use 1.9.2 --default
+  rvm install 1.9.3
+  rvm use 1.9.3 --default
   gem install rails
 
 #
